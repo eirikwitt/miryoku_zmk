@@ -1,0 +1,14 @@
+name: 'Build Corne eirikwitt'
+on: workflow_dispatch
+jobs:
+  build:
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
+    with:
+      board: '["nice_nano_v2"]'
+      shield: '["corne_left","corne_right"]'
+      alphas: '["colemakdh"]'
+      custom_config: '["#define MIRYOKU_EXTRA_QWERTY"]'
+      kconfig: '["CONFIG_ZMK_DISPLAY_HIDE_MOMENTARY_LAYERS=y\nCONFIG_CUSTOM_WIDGET_LAYER_STATUS_HIDE_HEADING=y\nCONFIG_CUSTOM_WIDGET_LOGO_IMAGE_MIRYOKU=y\nCONFIG_ZMK_MOUSE=y"]'
+      branches: '["zmkfirmware/zmk/main"]'
+
